@@ -37,7 +37,7 @@ type Timestamp struct {
 	timestamppb.Timestamp
 }
 
-func NewTimestamp(t time.Time) *Timestamp {
+func New(t time.Time) *Timestamp {
 	return &Timestamp{*timestamppb.New(t)}
 }
 func (ts *Timestamp) AsTimestamp() *timestamppb.Timestamp {
@@ -81,28 +81,28 @@ func (ts *Timestamp) Scan(src interface{}) error {
 		if x.IsZero() {
 			ts.Reset()
 		} else {
-			*ts = *NewTimestamp(x)
+			*ts = *New(x)
 		}
 	case *time.Time:
 		if x == nil || x.IsZero() {
 			ts.Reset()
 		} else {
-			*ts = *NewTimestamp(*x)
+			*ts = *New(*x)
 		}
 	case sql.NullTime:
 		if !x.Valid {
 			ts.Reset()
 		} else {
-			*ts = *NewTimestamp(x.Time)
+			*ts = *New(x.Time)
 		}
 	case *timestamppb.Timestamp:
 		if x == nil {
 			ts.Reset()
 		} else {
-			*ts = *NewTimestamp(x.AsTime())
+			*ts = *New(x.AsTime())
 		}
 	case *Timestamp:
-		*ts = *NewTimestamp(x.AsTime())
+		*ts = *New(x.AsTime())
 	default:
 		return fmt.Errorf("cannot scan %T to DateTime", src)
 	}

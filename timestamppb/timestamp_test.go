@@ -33,7 +33,7 @@ func TestTimestampMarshalXML(t *testing.T) {
 		Want string
 	}{
 		{In: nil, Want: `<element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"></element>`},
-		{In: timestamppb.NewTimestamp(time.Date(2019, 10, 22, 16, 56, 32, 0, time.Local)), Want: `<element>2019-10-22T16:56:32+02:00</element>`},
+		{In: timestamppb.New(time.Date(2019, 10, 22, 16, 56, 32, 0, time.Local)), Want: `<element>2019-10-22T16:56:32+02:00</element>`},
 	} {
 		buf.Reset()
 		if err := tC.In.MarshalXML(enc, st); err != nil {
@@ -48,8 +48,8 @@ func TestTimestampMarshalXML(t *testing.T) {
 func TestTimestampProto(t *testing.T) {
 	var ts pb.Ts
 	ts.Reset()
-	ts.Ts = timestamppb.NewTimestamp(time.Now())
-	ts.Tss = []*timestamppb.Timestamp{timestamppb.NewTimestamp(time.Now()), nil, timestamppb.NewTimestamp(time.Now())}
+	ts.Ts = timestamppb.New(time.Now())
+	ts.Tss = []*timestamppb.Timestamp{timestamppb.New(time.Now()), nil, timestamppb.New(time.Now())}
 	t.Log("ts:", ts.String())
 	b, err := proto.Marshal(&ts)
 	if err != nil {
