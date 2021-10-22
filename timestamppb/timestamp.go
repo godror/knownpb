@@ -16,7 +16,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/UNO-SOFT/knownpb"
+	"github.com/UNO-SOFT/knownpb/internal"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/types/known/timestamppb"
@@ -125,7 +125,7 @@ func (ts *Timestamp) MarshalXML(enc *xml.Encoder, start xml.StartElement) error 
 	start.Attr = append(start.Attr,
 		xml.Attr{Name: xml.Name{Space: "http://www.w3.org/2001/XMLSchema-instance", Local: "nil"}, Value: "true"})
 
-	bw := knownpb.GetXMLEncoderWriter(enc)
+	bw := internal.GetXMLEncoderWriter(enc)
 	bw.Flush()
 	old := *bw
 	var buf bytes.Buffer

@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-package knownpb
+package internal
 
 import (
 	"bufio"
