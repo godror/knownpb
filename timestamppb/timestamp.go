@@ -30,6 +30,8 @@ var (
 	_ = xml.Marshaler((*Timestamp)(nil))
 	_ = xml.Unmarshaler((*Timestamp)(nil))
 	_ = proto.Message((*Timestamp)(nil))
+	_ = sql.Scanner((*Timestamp)(nil))
+	_ = driver.Valuer((*Timestamp)(nil))
 )
 
 // Timestamp is a wrapped timestamppb.Timestamp with proper JSON and XML marshaling (as string date).
@@ -110,7 +112,7 @@ func (ts *Timestamp) Scan(src interface{}) error {
 }
 func (ts *Timestamp) Value() (driver.Value, error) {
 	if ts == nil || ts.IsZero() {
-		return nil, nil
+		return time.Time{}, nil
 	}
 	return ts.AsTime(), nil
 }
