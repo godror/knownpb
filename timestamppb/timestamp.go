@@ -16,7 +16,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/UNO-SOFT/knownpb/internal"
+	"github.com/godror/knownpb/internal"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/types/known/timestamppb"

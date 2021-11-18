@@ -1,4 +1,4 @@
-module github.com/UNO-SOFT/knownpb
+module github.com/godror/knownpb
 
 go 1.17
 

@@ -12,8 +12,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/UNO-SOFT/knownpb/timestamppb"
-	"github.com/UNO-SOFT/knownpb/timestamppb/testdata/pb"
+	"github.com/godror/knownpb/timestamppb"
+	"github.com/godror/knownpb/timestamppb/testdata/pb"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 	"google.golang.org/protobuf/proto"

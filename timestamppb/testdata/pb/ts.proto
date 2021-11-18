@@ -3,7 +3,7 @@ syntax = "proto3";
 import "google/protobuf/timestamp.proto";
 
 package pb;
-option go_package = "github.com/UNO-SOFT/knownpb/testdata/pb";
+option go_package = "github.com/godror/knownpb/testdata/pb";
 
 message Ts {
     google.protobuf.Timestamp ts = 1;

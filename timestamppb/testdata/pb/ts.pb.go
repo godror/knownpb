@@ -7,7 +7,7 @@
 package pb
 
 import (
-	timestamp "github.com/UNO-SOFT/knownpb/timestamppb"
+	timestamp "github.com/godror/knownpb/timestamppb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
