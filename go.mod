@@ -1,9 +1,10 @@
 module github.com/godror/knownpb
 
-go 1.17
+go 1.22.4
 
 require (
 	github.com/google/go-cmp v0.5.6
+	github.com/planetscale/vtprotobuf v0.6.0
 	google.golang.org/protobuf v1.34.2
 )
 
