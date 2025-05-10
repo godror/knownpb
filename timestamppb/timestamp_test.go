@@ -19,10 +19,10 @@ import (
 	"google.golang.org/protobuf/proto"
 )
 
-// go:generate go install github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtproto@latest
+// go : generate go install github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtproto@latest
 //go:generate go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 //go:generate go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
-// go:generate sh -c "mkdir -p $(go env GOPATH)/src/google/protobuf; curl -sS -L -m 30 -o $(go env GOPATH)/src/google/protobuf/timestamp.proto https://github.com/protocolbuffers/protobuf/raw/main/src/google/protobuf/timestamp.proto"
+// go : generate sh -c "mkdir -p $(go env GOPATH)/src/google/protobuf; curl -sS -L -m 30 -o $(go env GOPATH)/src/google/protobuf/timestamp.proto https://github.com/protocolbuffers/protobuf/raw/main/src/google/protobuf/timestamp.proto"
 //go:generate sh -c "set -x;  protoc -I. -I$(go env GOPATH)/src --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative ./testdata/pb/ts.proto"
 //go:generate sh -c "../replace_timestamp.sh testdata/pb/*.go"
 
